@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { cn } from "@/lib/utils"
 
 export function DashboardHeader() {
   const pathname = usePathname()
@@ -30,69 +31,69 @@ export function DashboardHeader() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[240px] sm:w-[280px]">
-              <nav className="flex flex-col gap-4">
+            <SheetContent side="left" className="pr-0">
+              <div className="flex flex-col gap-4">
                 <Link href="/dashboard" className="flex items-center gap-2 text-lg font-semibold">
                   <GraduationCap className="h-5 w-5" />
                   <span>PassQuest</span>
                 </Link>
-                <div className="space-y-1">
-                  <Link
-                    href="/dashboard"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <Home className="h-4 w-4" />
-                    Dashboard
+                <nav className="flex flex-col space-y-1">
+                  <Link href="/dashboard" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard" && "bg-muted")}
+                    >
+                      <Home className="mr-2 h-4 w-4" />
+                      Dashboard
+                    </Button>
                   </Link>
-                  <Link
-                    href="/dashboard/questions"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard/questions" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <FileQuestion className="h-4 w-4" />
-                    Past Questions
+                  <Link href="/dashboard/questions" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard/questions" && "bg-muted")}
+                    >
+                      <FileQuestion className="mr-2 h-4 w-4" />
+                      Past Questions
+                    </Button>
                   </Link>
-                  <Link
-                    href="/dashboard/quizzes"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard/quizzes" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <BookOpen className="h-4 w-4" />
-                    My Quizzes
+                  <Link href="/dashboard/quizzes" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard/quizzes" && "bg-muted")}
+                    >
+                      <BookOpen className="mr-2 h-4 w-4" />
+                      My Quizzes
+                    </Button>
                   </Link>
-                  <Link
-                    href="/dashboard/uploads"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard/uploads" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <Upload className="h-4 w-4" />
-                    My Uploads
+                  <Link href="/dashboard/uploads" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard/uploads" && "bg-muted")}
+                    >
+                      <Upload className="mr-2 h-4 w-4" />
+                      My Uploads
+                    </Button>
                   </Link>
-                  <Link
-                    href="/dashboard/progress"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard/progress" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <BarChart className="h-4 w-4" />
-                    Progress
+                  <Link href="/dashboard/progress" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard/progress" && "bg-muted")}
+                    >
+                      <BarChart className="mr-2 h-4 w-4" />
+                      Progress
+                    </Button>
                   </Link>
-                  <Link
-                    href="/dashboard/settings"
-                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                      pathname === "/dashboard/settings" ? "bg-muted" : "hover:bg-muted"
-                    }`}
-                  >
-                    <Settings className="h-4 w-4" />
-                    Settings
+                  <Link href="/dashboard/settings" passHref>
+                    <Button
+                      variant="ghost"
+                      className={cn("w-full justify-start", pathname === "/dashboard/settings" && "bg-muted")}
+                    >
+                      <Settings className="mr-2 h-4 w-4" />
+                      Settings
+                    </Button>
                   </Link>
-                </div>
-              </nav>
+                </nav>
+              </div>
             </SheetContent>
           </Sheet>
           <Link href="/dashboard" className="flex items-center gap-2">
